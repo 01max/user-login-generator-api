@@ -52,4 +52,10 @@ RSpec.describe User, type: :model do
       expect(described_class.possible_logins.length).to eq(number_of_possible_combinations)
     end
   end
+
+  describe '.available_logins' do
+    it 'returns all the possible_logins without the ones already assigned' do
+      expect(described_class.available_logins).to eq(described_class.possible_logins - described_class.assigned_logins)
+    end
+  end
 end

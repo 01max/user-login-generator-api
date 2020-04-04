@@ -4,11 +4,18 @@ class User < ApplicationRecord
   validates :login, format: { with: /\A[A-Z]{3}\z/, message: 'must be composed of exactly 3 capital letters' },
                     uniqueness: true
 
-  before_validation :upcase_login!
+  before_validation :upcase_login
+
+  def save_with_alternative_login
+    return if id.present?
+
+    self.login = self.class.available_logins.sample
+    save
+  end
 
   private
 
-  def upcase_login!
+  def upcase_login
     self.login = login.upcase
   end
 

@@ -59,11 +59,23 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#upcase_login!' do
+  describe '#save_with_alternative_login' do
+    let(:reserved_login_user) { described_class.new(login: existing_user.login) }
+
+    it 'transfor the User\'s login into another unused login' do
+      expect { reserved_login_user.send(:save_with_alternative_login) }.to change {
+        reserved_login_user.login
+      }
+    end
+  end
+
+  describe '#upcase_login' do
     let(:downcased_login_user) { described_class.new(login: 'dow') }
 
     it 'transfor the User\'s login into its capitalized version' do
-      expect { downcased_login_user.send(:upcase_login!) }.to change{ downcased_login_user.login }.from('dow').to('DOW')
+      expect { downcased_login_user.send(:upcase_login) }.to change {
+        downcased_login_user.login
+      }.from('dow').to('DOW')
     end
   end
 end

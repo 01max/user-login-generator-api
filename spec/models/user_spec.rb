@@ -58,4 +58,12 @@ RSpec.describe User, type: :model do
       expect(described_class.available_logins).to eq(described_class.possible_logins - described_class.assigned_logins)
     end
   end
+
+  describe '#upcase_login!' do
+    let(:downcased_login_user) { described_class.new(login: 'dow') }
+
+    it 'transfor the User\'s login into its capitalized version' do
+      expect { downcased_login_user.send(:upcase_login!) }.to change{ downcased_login_user.login }.from('dow').to('DOW')
+    end
+  end
 end

@@ -4,6 +4,14 @@ class User < ApplicationRecord
   validates :login, format: { with: /\A[A-Z]{3}\z/, message: 'must be composed of exactly 3 capital letters' },
                     uniqueness: true
 
+  before_validation :upcase_login!
+
+  private
+
+  def upcase_login!
+    self.login = login.upcase
+  end
+
   class << self
     def assigned_logins
       all.pluck(:login)

@@ -522,3 +522,6 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/osx,ruby,rails,visualstudio
+
+# Docker files
+.docker-data/

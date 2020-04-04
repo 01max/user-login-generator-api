@@ -1,0 +1,4 @@
+#!/bin/bash
+. "$(dirname "$0")"/stop
+docker-compose up $*
+rm -f tmp/pids/server.pid

@@ -26,7 +26,16 @@ curl -X POST \
   -F login=AAZ
 ```
 
-# NOTE
+# UNIT TESTS & LINTER
 
-1. I chose to use ruby's Array [repeated_permutation](https://apidock.com/ruby/Array/repeated_permutation) method to generate all possible combinations of logins instead of implementing it myself via recursion, as it's part of the ruby core lib.
+Some rspecs tests have been implemented covering User methods. A rubocop ruby linter has also been used.
+
+```sh
+docker/run rake secret
+docker/run rubocop
+```
+
+# IMPORTANT NOTES
+
+1. I chose to use ruby's Array [repeated_permutation](https://apidock.com/ruby/Array/repeated_permutation) method to generate all possible combinations of logins instead of implementing it from scratch via recursion, as it's part of the ruby core lib.
 2. I chose not to store the possible combinations of logins (either through a yaml config file or a global var on init), as with the desired scope of 3 chars, the on-the-fly generation was totally doable with more than correct performances.

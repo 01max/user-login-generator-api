@@ -41,8 +41,15 @@ RSpec.describe User, type: :model do
 
   describe '.expected_login_chars' do
     let(:login_possible_chars) { %w[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z] }
-    it 'returns all the logins of the existing Users' do
+    it 'returns all the characters that can be used in a User login' do
       expect(described_class.expected_login_chars).to eq(login_possible_chars)
+    end
+  end
+
+  describe '.possible_logins' do
+    let(:number_of_possible_combinations) { described_class.expected_login_chars.length**3 }
+    it 'returns all the possible logins by combinations of all expected_login_chars (including permutations)' do
+      expect(described_class.possible_logins.length).to eq(number_of_possible_combinations)
     end
   end
 end

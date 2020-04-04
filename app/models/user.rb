@@ -12,5 +12,9 @@ class User < ApplicationRecord
     def expected_login_chars
       ('A'..'Z').to_a
     end
+
+    def possible_logins(length: 3)
+      expected_login_chars.repeated_permutation(length).to_a.map(&:join)
+    end
   end
 end

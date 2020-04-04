@@ -1,24 +1,8 @@
-# README
+# INSTALL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+``` sh
+cp .env.example .env
+docker/setup
+```
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Set the output of the `rake secret` as the value of `SECRET_KEY_BASE` in your `.env` file.

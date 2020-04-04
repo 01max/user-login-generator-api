@@ -1,0 +1,20 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - config.ru
+
+Layout/LineLength:
+  Max: 120
+Style/Documentation:
+  Enabled: false
+
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true

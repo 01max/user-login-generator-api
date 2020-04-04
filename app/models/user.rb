@@ -8,5 +8,9 @@ class User < ApplicationRecord
     def assigned_logins
       all.pluck(:login)
     end
+
+    def expected_login_chars
+      ('A'..'Z').to_a
+    end
   end
 end

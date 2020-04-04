@@ -38,4 +38,11 @@ RSpec.describe User, type: :model do
       expect(described_class.assigned_logins).to eq(described_class.all.pluck(:login))
     end
   end
+
+  describe '.expected_login_chars' do
+    let(:login_possible_chars) { %w[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z] }
+    it 'returns all the logins of the existing Users' do
+      expect(described_class.expected_login_chars).to eq(login_possible_chars)
+    end
+  end
 end

@@ -32,4 +32,10 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '.assigned_logins' do
+    it 'returns all the logins of the existing Users' do
+      expect(described_class.assigned_logins).to eq(described_class.all.pluck(:login))
+    end
+  end
 end

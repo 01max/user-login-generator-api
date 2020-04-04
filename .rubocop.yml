@@ -5,6 +5,8 @@ AllCops:
 
 Layout/LineLength:
   Max: 120
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'included']
 Style/Documentation:
   Enabled: false
 

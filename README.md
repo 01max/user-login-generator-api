@@ -5,7 +5,7 @@ cp .env.example .env
 docker/setup
 ```
 
-Set the output of the `rake secret` as the value of `SECRET_KEY_BASE` in your `.env` file.
+Set the output of the `docker/run rake secret` as the value of `SECRET_KEY_BASE` in your `.env` file.
 
 
 # USAGE
@@ -29,4 +29,4 @@ curl -X POST \
 # NOTE
 
 1. I chose to use ruby's Array [repeated_permutation](https://apidock.com/ruby/Array/repeated_permutation) method to generate all possible combinations of logins instead of implementing it myself via recursion, as it's part of the ruby core lib.
-2. I chose not to store the possible combinations of logins (either through a yaml config file or a global variables on init), as with the desired scope of 3 chars, the on-the-fly generation was totally doable with more than correct performances.
+2. I chose not to store the possible combinations of logins (either through a yaml config file or a global var on init), as with the desired scope of 3 chars, the on-the-fly generation was totally doable with more than correct performances.
